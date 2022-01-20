@@ -11,5 +11,5 @@ RUN apk add --no-cache nghttp2-libs binutils libexecinfo-dev libcurl zip unzip c
                                setuptools>=40.8.0 \
                                wheel==0.37.1 \
                                pyyaml==6.0 \
-                               awslambdaric==2.0.1 && \
+                               awslambdaric==2.0.0 && \
     apk del libexecinfo-dev libcurl cmake automake make curl-dev libtool autoconf gcc g++ zlib-dev musl-dev python3-dev

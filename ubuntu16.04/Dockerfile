@@ -11,13 +11,13 @@ RUN cd Python-3.8.12 && \
     ./configure --enable-optimizations --enable-shared && \
     make altinstall
 ENV LD_LIBRARY_PATH /usr/local/lib
-RUN if [ "$TARGETARCH" = "arm64" ]; then \
-          wget https://github.com/Kitware/CMake/releases/download/v3.22.1/cmake-3.22.1-linux-aarch64.sh; \
-          chmod +x cmake-3.22.1-linux-aarch64.sh; \
-          mkdir /opt/cmake; \
-          ./cmake-3.22.1-linux-aarch64.sh --skip-license --exclude-subdir --prefix=/opt/cmake; \
-          ln -s /opt/cmake/bin/* /usr/local/bin; \
-    fi
+# RUN if [ "$TARGETARCH" = "arm64" ]; then \
+#           wget https://github.com/Kitware/CMake/releases/download/v3.22.1/cmake-3.22.1-linux-aarch64.sh; \
+#           chmod +x cmake-3.22.1-linux-aarch64.sh; \
+#           mkdir /opt/cmake; \
+#           ./cmake-3.22.1-linux-aarch64.sh --skip-license --exclude-subdir --prefix=/opt/cmake; \
+#           ln -s /opt/cmake/bin/* /usr/local/bin; \
+#     fi
 RUN python3.8 -m ensurepip
 RUN python3.8 -m pip --no-cache-dir install pyinstaller
 RUN python3.8 -m pip --no-cache-dir install boto3==1.20.38 \
@@ -25,4 +25,4 @@ RUN python3.8 -m pip --no-cache-dir install boto3==1.20.38 \
                                             setuptools>=40.8.0 \
                                             wheel==0.37.1 \
                                             pyyaml==6.0 \
-                                            awslambdaric==2.0.1
+                                            awslambdaric==2.0.0
