@@ -12,6 +12,8 @@ RUN cd Python-3.8.12 && \
 
 
 FROM ubuntu:16.04
+# Add global TARGETARCH argument to this stage
+ARG TARGETARCH
 LABEL maintainer="Miguel Caballer <micafer1@upv.es>"
 LABEL description="Container image to build faas-supervisor in amd64"
 RUN apt update

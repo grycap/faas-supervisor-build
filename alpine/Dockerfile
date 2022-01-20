@@ -1,4 +1,6 @@
 FROM alpine:3.12
+# Add global TARGETARCH argument to this stage
+ARG TARGETARCH
 LABEL maintainer="Miguel Caballer <micafer1@upv.es>"
 LABEL description="Container image to build faas-supervisor in alpine"
 RUN apk add --no-cache nghttp2-libs binutils libexecinfo-dev libcurl zip unzip cmake automake make curl-dev libtool autoconf gcc g++ zlib-dev musl-dev py3-pip python3 python3-dev && \
