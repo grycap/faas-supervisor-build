@@ -17,7 +17,7 @@ ARG TARGETARCH
 LABEL maintainer="Miguel Caballer <micafer1@upv.es>"
 LABEL description="Container image to build faas-supervisor in amd64"
 RUN apt update
-RUN apt install -y zip libssl1.0.0 binutils libffi6 wget --no-install-recommends
+RUN apt install -y zip libssl1.0.0 binutils libffi6 wget
 COPY --from=0 /usr/local/lib /usr/local/lib
 COPY --from=0 /usr/local/bin /usr/local/bin
 COPY --from=0 /usr/local/include /usr/local/include
