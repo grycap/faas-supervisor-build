@@ -22,7 +22,7 @@ COPY --from=0 /usr/local/lib /usr/local/lib
 COPY --from=0 /usr/local/bin /usr/local/bin
 COPY --from=0 /usr/local/include /usr/local/include
 ENV LD_LIBRARY_PATH /usr/local/lib
-RUN if [ "$TARGETARCH" = "arm64" ]; THEN \
+RUN if [ "$TARGETARCH" = "arm64" ]; then \
           wget https://github.com/Kitware/CMake/releases/download/v3.22.1/cmake-3.22.1-linux-aarch64.sh; \
           chmod +x cmake-3.22.1-linux-aarch64.sh; \
           mkdir /opt/cmake; \
