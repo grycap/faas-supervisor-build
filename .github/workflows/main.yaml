@@ -20,7 +20,7 @@ jobs:
       id: prepare
       run: |
         if [[ $GITHUB_REF == refs/tags/* ]]; then
-          VERSION=${GITHUB_REF#refs/tags/v}
+          VERSION=${GITHUB_REF#refs/tags/}
         fi
         TAGS="--tag ghcr.io/grycap/faas-supervisor-build:ubuntu16.04-latest"
         if [[ ! -z "$VERSION" ]]; then
@@ -52,7 +52,7 @@ jobs:
       id: prepare
       run: |
         if [[ $GITHUB_REF == refs/tags/* ]]; then
-          VERSION=${GITHUB_REF#refs/tags/v}
+          VERSION=${GITHUB_REF#refs/tags/}
         fi
         TAGS="--tag ghcr.io/grycap/faas-supervisor-build:alpine-latest"
         if [[ ! -z "$VERSION" ]]; then
