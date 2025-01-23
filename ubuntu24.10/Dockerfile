@@ -20,6 +20,7 @@ RUN wget https://github.com/Kitware/CMake/releases/download/v3.22.1/cmake-3.22.1
         ln -s /opt/cmake/bin/* /usr/local/bin
 #     fi
 RUN python3.12 -m pip --no-cache-dir install pyinstaller
+RUN python3.12 -m pip install "cython<3.0.0" && python3.12 -m pip install --no-build-isolation pyyaml==6.0
 RUN python3.12 -m pip --no-cache-dir install boto3==1.20.38 \
                                             requests==2.27.1 \
                                             setuptools>=40.8.0 \
