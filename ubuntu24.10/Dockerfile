@@ -11,18 +11,11 @@ RUN cd Python-3.13.1 && \
     ./configure --enable-optimizations --enable-shared --disable-ipv6 && \
     make altinstall
 ENV LD_LIBRARY_PATH /usr/local/lib
-# RUN if [ "$TARGETARCH" = "arm64" ]; then \
-#           wget https://github.com/Kitware/CMake/releases/download/v3.22.1/cmake-3.22.1-linux-aarch64.sh; \
-#           chmod +x cmake-3.22.1-linux-aarch64.sh; \
-#           mkdir /opt/cmake; \
-#           ./cmake-3.22.1-linux-aarch64.sh --skip-license --exclude-subdir --prefix=/opt/cmake; \
-#           ln -s /opt/cmake/bin/* /usr/local/bin; \
-#     fi
 RUN python3.13 -m ensurepip
 RUN python3.13 -m pip --no-cache-dir install pyinstaller
+RUN pip install "cython<3.0.0" && pip install --no-build-isolation pyyaml==6.0
 RUN python3.13 -m pip --no-cache-dir install boto3==1.20.38 \
                                             requests==2.27.1 \
                                             setuptools>=40.8.0 \
                                             wheel==0.37.1 \
-                                            pyyaml==6.0 \
                                             awslambdaric==2.0.0
