@@ -8,7 +8,7 @@ RUN apt install -y zip build-essential zlib1g-dev libncurses5-dev libgdbm-dev li
 RUN wget https://www.python.org/ftp/python/3.13.1/Python-3.13.1.tgz
 RUN tar -xzf Python-3.13.1.tgz
 RUN cd Python-3.13.1 && \
-    ./configure --enable-optimizations --enable-shared && \
+    ./configure --enable-optimizations --enable-shared --disable-ipv6 && \
     make altinstall
 ENV LD_LIBRARY_PATH /usr/local/lib
 # RUN if [ "$TARGETARCH" = "arm64" ]; then \
