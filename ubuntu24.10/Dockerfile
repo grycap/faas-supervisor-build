@@ -17,7 +17,7 @@ RUN wget https://github.com/Kitware/CMake/releases/download/v3.22.1/cmake-3.22.1
         chmod +x cmake-3.22.1-linux-aarch64.sh; \
         mkdir /opt/cmake; \
         ./cmake-3.22.1-linux-aarch64.sh --skip-license --exclude-subdir --prefix=/opt/cmake; \
-        ln -s /opt/cmake/bin/* /usr/local/bin; \
+        ln -s /opt/cmake/bin/* /usr/local/bin
 #     fi
 RUN python3.12 -m pip --no-cache-dir install pyinstaller
 RUN python3.12 -m pip install "cython<3.0.0" && python3.12 -m pip install --no-build-isolation pyyaml==6.0
