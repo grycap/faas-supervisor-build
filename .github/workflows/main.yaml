@@ -73,7 +73,7 @@ jobs:
       run: rm -f ${HOME}/.docker/config.json
 
   build-ubuntu24:
-    runs-on: ubuntu-24.10
+    runs-on: ubuntu-24.04
     steps:
     - name: Checkout
       uses: actions/checkout@v4
