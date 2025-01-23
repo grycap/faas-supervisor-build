@@ -7,9 +7,9 @@ RUN apt update
 RUN apt install -y zip build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget binutils wget
 RUN wget https://www.python.org/ftp/python/3.12.8/Python-3.12.8.tgz
 RUN tar -xzf Python-3.12.8.tgz
-RUN cd Python-3.12.8 && \
-    ./configure --enable-optimizations --enable-shared --disable-ipv6 && \
-    make altinstall
+RUN /bin/bash -c "cd Python-3.12.8 && \
+    ./configure --enable-optimizations --enable-shared && \
+    make altinstall"
 ENV LD_LIBRARY_PATH=/usr/local/lib
 RUN python3.12 -m ensurepip
 RUN python3.12 -m pip --no-cache-dir install pyinstaller
