@@ -4,7 +4,7 @@ ARG TARGETARCH
 LABEL maintainer="Miguel Caballer <micafer1@upv.es>"
 LABEL description="Container image to build faas-supervisor in amd64"
 RUN apt update
-RUN apt install -y zip build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget libssl1.0.0 binutils libffi6 wget
+RUN apt install -y zip build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget binutils wget
 RUN wget https://www.python.org/ftp/python/3.14.0/Python-3.14.0.tgz
 RUN tar -xzf Python-3.14.0.tgz
 RUN cd Python-3.14.0 && \
