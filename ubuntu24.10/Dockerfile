@@ -18,9 +18,9 @@ ENV LD_LIBRARY_PATH /usr/local/lib
 #           ./cmake-3.22.1-linux-aarch64.sh --skip-license --exclude-subdir --prefix=/opt/cmake; \
 #           ln -s /opt/cmake/bin/* /usr/local/bin; \
 #     fi
-RUN python3.14 -m ensurepip
-RUN python3.14 -m pip --no-cache-dir install pyinstaller
-RUN python3.14 -m pip --no-cache-dir install boto3==1.20.38 \
+RUN python3.13 -m ensurepip
+RUN python3.13 -m pip --no-cache-dir install pyinstaller
+RUN python3.13 -m pip --no-cache-dir install boto3==1.20.38 \
                                             requests==2.27.1 \
                                             setuptools>=40.8.0 \
                                             wheel==0.37.1 \
