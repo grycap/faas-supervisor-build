@@ -1,4 +1,4 @@
-FROM ubuntu:24.04
+FROM ubuntu:24.10
 # Add global TARGETARCH argument to this stage
 ARG TARGETARCH
 LABEL maintainer="Miguel Caballer <micafer1@upv.es>"

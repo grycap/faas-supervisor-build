@@ -72,7 +72,7 @@ jobs:
       run: rm -f ${HOME}/.docker/config.json
 
   build-ubuntu24:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-24.10
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -86,12 +86,12 @@ jobs:
         if [[ $GITHUB_REF == refs/tags/* ]]; then
           VERSION=${GITHUB_REF#refs/tags/}
         fi
-        TAGS="--tag ghcr.io/grycap/faas-supervisor-build:ubuntu24.04-latest"
+        TAGS="--tag ghcr.io/grycap/faas-supervisor-build:ubuntu24.10-latest"
         if [[ ! -z "$VERSION" ]]; then
-          TAGS="$TAGS --tag ghcr.io/grycap/faas-supervisor-build:ubuntu24.04-${VERSION}"
+          TAGS="$TAGS --tag ghcr.io/grycap/faas-supervisor-build:ubuntu24.10-${VERSION}"
         fi
         echo ::set-output name=buildx_args::--platform "linux/amd64,linux/arm64" \
-          ${TAGS} "ubuntu 24.04"
+          ${TAGS} ubuntu24.10
     - name: GHCR login
       env:
           GHCR_USERNAME: ${{ secrets.GHCR_USERNAME }}
