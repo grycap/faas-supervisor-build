@@ -5,9 +5,9 @@ LABEL maintainer="Miguel Caballer <micafer1@upv.es>"
 LABEL description="Container image to build faas-supervisor in amd64"
 RUN apt update
 RUN apt install -y zip build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget binutils wget
-RUN wget https://www.python.org/ftp/python/3.14.0/Python-3.14.0.tgz
-RUN tar -xzf Python-3.14.0.tgz
-RUN cd Python-3.14.0 && \
+RUN wget https://www.python.org/ftp/python/3.13.1/Python-3.13.1.tgz
+RUN tar -xzf Python-3.13.1.tgz
+RUN cd Python-3.13.1 && \
     ./configure --enable-optimizations --enable-shared && \
     make altinstall
 ENV LD_LIBRARY_PATH /usr/local/lib
