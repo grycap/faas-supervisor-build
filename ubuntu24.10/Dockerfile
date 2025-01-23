@@ -13,7 +13,7 @@ RUN cd Python-3.13.1 && \
 ENV LD_LIBRARY_PATH /usr/local/lib
 RUN python3.13 -m ensurepip
 RUN python3.13 -m pip --no-cache-dir install pyinstaller
-RUN pip install "cython<3.0.0" && pip install --no-build-isolation pyyaml==6.0
+RUN python3.13 -m pip install "cython<3.0.0" && pip install --no-build-isolation pyyaml==6.0
 RUN python3.13 -m pip --no-cache-dir install boto3==1.20.38 \
                                             requests==2.27.1 \
                                             setuptools>=40.8.0 \
