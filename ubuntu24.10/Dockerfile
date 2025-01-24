@@ -8,10 +8,10 @@ RUN apt install -y zip build-essential zlib1g-dev libncurses5-dev autoconf libgd
 RUN wget https://www.python.org/ftp/python/3.12.8/Python-3.12.8.tgz
 RUN tar -xzf Python-3.12.8.tgz
 RUN /bin/bash -c "cd Python-3.12.8 && \
-    ./configure --enable-optimizations --enable-shared && \
-    make altinstall"
+    ./configure --enable-optimizations && \
+    make install"
 ENV LD_LIBRARY_PATH=/usr/local/lib
-RUN python3.12 -m ensurepip
+RUN python3 -m ensurepip
 #RUN if [ "$TARGETARCH" = "arm64" ]; then \
 RUN wget https://github.com/Kitware/CMake/releases/download/v3.22.1/cmake-3.22.1-linux-aarch64.sh; \
         chmod +x cmake-3.22.1-linux-aarch64.sh; \
@@ -19,9 +19,9 @@ RUN wget https://github.com/Kitware/CMake/releases/download/v3.22.1/cmake-3.22.1
         ./cmake-3.22.1-linux-aarch64.sh --skip-license --exclude-subdir --prefix=/opt/cmake; \
         ln -s /opt/cmake/bin/* /usr/local/bin
 #     fi
-RUN python3.12 -m pip --no-cache-dir install pyinstaller
-RUN python3.12 -m pip install "cython<3.0.0" && python3.12 -m pip install --no-build-isolation pyyaml==6.0
-RUN python3.12 -m pip --no-cache-dir install boto3==1.20.38 \
+RUN python3 -m pip --no-cache-dir install pyinstaller
+RUN python3 -m pip install "cython<3.0.0" && python3.12 -m pip install --no-build-isolation pyyaml==6.0
+RUN python3 -m pip --no-cache-dir install boto3==1.20.38 \
                                             requests==2.27.1 \
                                             setuptools>=40.8.0 \
                                             pyyaml==6.0 \
