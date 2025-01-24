@@ -7,9 +7,9 @@ RUN apt update
 RUN apt install -y zip build-essential zlib1g-dev libncurses5-dev autoconf libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget binutils wget
 RUN wget https://www.python.org/ftp/python/3.12.8/Python-3.12.8.tgz
 RUN tar -xzf Python-3.12.8.tgz
-RUN /bin/bash -c "cd Python-3.12.8 && \
+RUN cd Python-3.12.8 && \
     ./configure --enable-optimizations && \
-    make install"
+    make install
 ENV LD_LIBRARY_PATH=/usr/local/lib
 RUN python3 -m ensurepip
 #RUN if [ "$TARGETARCH" = "arm64" ]; then \
