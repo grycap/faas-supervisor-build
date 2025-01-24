@@ -25,4 +25,4 @@ RUN python3 -m pip --no-cache-dir install boto3==1.20.38 \
                                             setuptools>=40.8.0 \
                                             pyyaml==6.0.1 \
                                             wheel==0.37.1 \
-                                            awslambdaric==2.0.0
+                                            awslambdaric==2.0.12
