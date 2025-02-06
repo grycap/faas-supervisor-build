@@ -6,13 +6,20 @@ LABEL maintainer="Miguel Caballer <micafer1@upv.es>"
 LABEL description="Container image to build faas-supervisor in alpine"
 RUN apk add --no-cache \
         build-base \
+        libffi \
         libffi-dev \
         zlib-dev \
+        zlib \
         bzip2-dev \
+        bzip2 \
         readline-dev \
+        readline \
         ncurses-dev \
+        ncurses \
         sqlite-dev \
+        sqlite-libs \
         tk-dev \
+        tk \
         libssl1.1 \
         openssl-dev \
         musl-dev \
@@ -60,8 +67,8 @@ RUN apk add --no-cache --virtual .build-deps gcc musl-dev \
 RUN pip3 --no-cache-dir install awslambdaric==2.0.12
 RUN pip3 --no-cache-dir install boto3==1.20.38 \
                                webdavclient3==3.14.6 \
-                               requests==2.27.1 \
+                               requests==2.32.3 \
                                setuptools>=40.8.0 \
                                wheel==0.37.1 \
                                pyyaml==6.0.1 \
-                               rucio-clients==1.31.7
+                               rucio-clients==36.2.0
